@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 
 import style from './App.module.scss';
 
-import { ReturnComponent } from 'types';
 import { Calendar } from 'components/Calendar/Calendar';
+import { Nullable, ReturnComponent } from 'types';
 
 const App = (): ReturnComponent => {
-  const [selectedDate, setSelectedDate] = useState(new Date(2023, 0,1));
+  const [selectedDate, setSelectedDate] = useState<Nullable<Date>>(null);
+  const [selectedWeek, setSelectedWeek] = useState<Nullable<Date[]>>(null);
 
   return (
     <div className={style.container}>
-      <Calendar selectedDate={selectedDate} selectDate={setSelectedDate} />
+      <Calendar
+        selectedDate={selectedDate}
+        selectDate={setSelectedDate}
+        selectWeek={setSelectedWeek}
+        selectedWeek={selectedWeek}
+      />
     </div>
   );
 };

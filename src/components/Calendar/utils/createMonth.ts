@@ -1,17 +1,26 @@
-import { getDaysNumberOfMonth } from 'components/Calendar/utils/getDaysNumberOfMonth';
-import { CreateMonthParams } from 'components/Calendar/utils/types';
 import { createDate } from 'components/Calendar/utils/createDate';
+import { getDaysNumberOfMonth } from 'components/Calendar/utils/getDaysNumberOfMonth';
+import {
+  CreateMonthParams,
+  ReturnCreateDate,
+  ReturnCreateMonth,
+} from 'components/Calendar/utils/types';
 
-
-export const createMonth = (params?: CreateMonthParams) => {
+export const createMonth = (params?: CreateMonthParams): ReturnCreateMonth => {
   const date = params?.date ?? new Date();
   const locale = params?.locale ?? 'default';
 
-  const { month: monthName, monthIndex, monthNumber, year } = createDate({ locale, date });
+  const {
+    month: monthName,
+    monthIndex,
+    monthNumber,
+    year,
+  } = createDate({ locale, date });
 
-  const getDay = (dayNumber: number) => createDate({ date: new Date(year, monthIndex, dayNumber), locale });
+  const getDay = (dayNumber: number): ReturnCreateDate =>
+    createDate({ date: new Date(year, monthIndex, dayNumber), locale });
 
-  const createMonthDays = () => {
+  const createMonthDays = (): ReturnCreateDate[] => {
     const days: ReturnType<typeof createDate>[] = [];
 
     for (let i = 0; i < getDaysNumberOfMonth(monthIndex, year); i += 1) {

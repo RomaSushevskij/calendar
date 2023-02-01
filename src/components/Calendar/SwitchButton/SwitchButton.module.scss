@@ -1,0 +1,22 @@
+.switchBtn {
+  width: 30px;
+  height: 30px;
+  padding: 5px 8px;
+  border: none;
+  background: transparent;
+  transition: 1s;
+
+  svg {
+    transition: fill .2s ease;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    svg {
+      fill: lightgray;
+      transition: fill .2s ease;
+    }
+  }
+
+}

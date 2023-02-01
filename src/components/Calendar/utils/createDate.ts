@@ -1,8 +1,7 @@
 import { getWeekNumber } from 'components/Calendar/utils/getWeekNumber';
-import { CreateDateParams } from 'components/Calendar/utils/types';
+import { CreateDateParams, ReturnCreateDate } from 'components/Calendar/utils/types';
 
-
-export const createDate = (params?: CreateDateParams) => {
+export const createDate = (params?: CreateDateParams): ReturnCreateDate => {
   const locale = params?.locale ?? 'default';
   const date = params?.date ?? new Date();
 

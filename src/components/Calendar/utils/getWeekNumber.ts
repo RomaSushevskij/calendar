@@ -1,6 +1,6 @@
 import { DAYS_IN_WEEK, MS_IN_DAY } from 'components/Calendar/utils/constants';
 
-export const getWeekNumber = (date: Date) => {
+export const getWeekNumber = (date: Date): number => {
   const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
   const passedDaysInYear = (date.getTime() - firstDayOfYear.getTime()) / MS_IN_DAY;
 

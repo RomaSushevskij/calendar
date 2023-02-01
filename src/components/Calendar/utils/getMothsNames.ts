@@ -1,13 +1,8 @@
-import { createDate } from 'components/Calendar/utils/createDate';
 import { MONTHS_IN_YEAR } from 'components/Calendar/utils/constants';
+import { createDate } from 'components/Calendar/utils/createDate';
+import { MonthNames } from 'components/Calendar/utils/types';
 
-type MonthNames = {
-  month: ReturnType<typeof createDate>['month'];
-  monthIndex: ReturnType<typeof createDate>['monthIndex'];
-  date: ReturnType<typeof createDate>['date'];
-}
-
-export const getMonthsNames = (locale: string = 'default') => {
+export const getMonthsNames = (locale: string = 'default'): MonthNames[] => {
   const monthsNames: MonthNames[] = Array.from({ length: MONTHS_IN_YEAR });
 
   const currentDate = new Date();
